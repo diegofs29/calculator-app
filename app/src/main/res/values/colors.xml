@@ -9,7 +9,10 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="ashGray">#BAC1B8</color>
+    <color name="ashGrayDark">#888C86</color>
+    <color name="ashGrayDarker">#4B4C4B</color>
     <color name="moonstone">#58A4B0</color>
+    <color name="moonstoneDark">#1B6C78</color>
     <color name="darkSpringGreen">#0C7C59</color>
     <color name="lightRed">#FF9A9A</color>
 </resources>
