@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.dfs.calculatorapp.R
 
-class KeyboardFragment : Fragment() {
+class KeyboardFragment : Fragment(R.layout.fragment_keyboard) {
 
     companion object {
         fun newInstance() = KeyboardFragment()

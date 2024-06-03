@@ -9,7 +9,7 @@ import android.view.ViewGroup
 
 import com.dfs.calculatorapp.R
 
-class ResultFragment : Fragment() {
+class ResultFragment : Fragment(R.layout.fragment_result) {
 
     companion object {
         fun newInstance() = ResultFragment()
