@@ -9,21 +9,22 @@ import android.view.ViewGroup
 import com.dfs.calculatorapp.MainViewModel
 
 import com.dfs.calculatorapp.R
+import com.dfs.calculatorapp.databinding.FragmentResultBinding
 
 class ResultFragment : Fragment(R.layout.fragment_result) {
     private val viewModel: MainViewModel by viewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        // TODO: Use the ViewModel
-    }
+    private lateinit var binding: FragmentResultBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_result, container, false)
+        binding = FragmentResultBinding.inflate(inflater, container, false)
+        return  binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 
 }

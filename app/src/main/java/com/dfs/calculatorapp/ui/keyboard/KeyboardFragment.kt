@@ -8,19 +8,21 @@ import android.view.View
 import android.view.ViewGroup
 import com.dfs.calculatorapp.MainViewModel
 import com.dfs.calculatorapp.R
+import com.dfs.calculatorapp.databinding.FragmentKeyboardBinding
 
 class KeyboardFragment : Fragment(R.layout.fragment_keyboard) {
     private val viewModel: MainViewModel by viewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    private lateinit var binding: FragmentKeyboardBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_keyboard, container, false)
+        binding = FragmentKeyboardBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 }
