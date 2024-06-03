@@ -5,6 +5,7 @@
         <item name="android:background">@drawable/button_background</item>
         <item name="android:layout_marginStart">1dp</item>
         <item name="android:layout_marginEnd">1dp</item>
+        <item name="android:textSize">22sp</item>
     </style>
 
     <style name="NumberButton" parent="CalculatorButton">
@@ -17,5 +18,9 @@
 
     <style name="EqualsButton" parent="CalculatorButton">
         <item name="android:backgroundTint">@color/darkSpringGreen</item>
+    </style>
+
+    <style name="DeleteButton" parent="CalculatorButton">
+        <item name="android:backgroundTint">@color/lightRed</item>
     </style>
 </resources>
