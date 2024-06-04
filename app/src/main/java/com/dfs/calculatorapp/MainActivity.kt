@@ -1,10 +1,9 @@
 package com.dfs.calculatorapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.dfs.calculatorapp.databinding.ActivityMainBinding
-import com.dfs.calculatorapp.ui.result.ResultFragment
 
 class MainActivity : AppCompatActivity() {
     private val viewModel: MainViewModel by viewModels()
