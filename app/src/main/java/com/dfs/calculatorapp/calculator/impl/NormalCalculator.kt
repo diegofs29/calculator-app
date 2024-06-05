@@ -1,6 +1,8 @@
 package com.dfs.calculatorapp.calculator.impl
 
 import com.dfs.calculatorapp.calculator.Calculator
+import kotlin.math.pow
+import kotlin.math.sqrt
 
 class NormalCalculator : Calculator {
     private var number1: Double? = null
@@ -21,20 +23,35 @@ class NormalCalculator : Calculator {
     override fun calculate(): Double {
         val n1 = number1
         val n2 = number2
+        number1 = null
+        number2 = null
         return if (n1 != null && n2 != null) {
-            when (operator) {
-                "+" -> n1 + n2
-                "-" -> n1 - n2
-                "×" -> n1 * n2
-                "÷" -> n1 / n2
-                else -> 0.0
-            }
+            calculateTwoNumbers(n1, n2)
         } else if (n1 != null) {
-            when (operator) {
-                else -> 0.0
-            }
+            calculateOneNumber(n1)
         } else {
             0.0
+        }
+    }
+
+    private fun calculateOneNumber(n: Double): Double {
+        return when (operator) {
+            "-" -> -n
+            "inv" -> 1 / n
+            "sq" -> n.pow(2)
+            "sqrt" -> sqrt(n)
+            "%" -> n / 100
+            else -> 0.0
+        }
+    }
+
+    private fun calculateTwoNumbers(n1: Double, n2: Double): Double {
+        return when (operator) {
+            "+" -> n1 + n2
+            "-" -> n1 - n2
+            "×" -> n1 * n2
+            "÷" -> n1 / n2
+            else -> 0.0
         }
     }
 }
