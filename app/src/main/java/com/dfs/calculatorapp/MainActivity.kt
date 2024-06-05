@@ -3,6 +3,7 @@ package com.dfs.calculatorapp
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.dfs.calculatorapp.calculator.impl.NormalCalculator
 import com.dfs.calculatorapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -13,5 +14,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        viewModel.calculator = NormalCalculator()
     }
 }

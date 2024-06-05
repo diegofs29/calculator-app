@@ -24,6 +24,33 @@ class KeyboardFragment : Fragment(R.layout.fragment_keyboard) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.keyboardButton0.setOnClickListener { viewModel.addToOperation("0") }
+        binding.keyboardButton0.setOnClickListener { viewModel.addNumberToOperation("0") }
+        binding.keyboardButton1.setOnClickListener { viewModel.addNumberToOperation("1") }
+        binding.keyboardButton2.setOnClickListener { viewModel.addNumberToOperation("2") }
+        binding.keyboardButton3.setOnClickListener { viewModel.addNumberToOperation("3") }
+        binding.keyboardButton4.setOnClickListener { viewModel.addNumberToOperation("4") }
+        binding.keyboardButton5.setOnClickListener { viewModel.addNumberToOperation("5") }
+        binding.keyboardButton6.setOnClickListener { viewModel.addNumberToOperation("6") }
+        binding.keyboardButton7.setOnClickListener { viewModel.addNumberToOperation("7") }
+        binding.keyboardButton8.setOnClickListener { viewModel.addNumberToOperation("8") }
+        binding.keyboardButton9.setOnClickListener { viewModel.addNumberToOperation("9") }
+
+        binding.keyboardButtonDecimal.setOnClickListener { viewModel.addNumberToOperation(".") }
+        binding.keyboardButtonNegative.setOnClickListener { viewModel.addSingleOperatorToOperation("-") }
+
+        binding.keyboardButtonAdd.setOnClickListener { viewModel.addOperatorToOperation("+") }
+        binding.keyboardButtonSubtract.setOnClickListener { viewModel.addOperatorToOperation("-") }
+        binding.keyboardButtonMultiply.setOnClickListener { viewModel.addOperatorToOperation("×") }
+        binding.keyboardButtonDivide.setOnClickListener { viewModel.addOperatorToOperation("÷") }
+        binding.keyboardButtonEquals.setOnClickListener { viewModel.calculate() }
+
+        binding.keyboardButtonInverse.setOnClickListener { viewModel.addSingleOperatorToOperation("inv") }
+        binding.keyboardButtonSquare.setOnClickListener { viewModel.addSingleOperatorToOperation("sq") }
+        binding.keyboardButtonSqrt.setOnClickListener { viewModel.addSingleOperatorToOperation("sqrt") }
+        binding.keyboardButtonPercentage.setOnClickListener { viewModel.addSingleOperatorToOperation("%") }
+        binding.keyboardButtonCe.setOnClickListener { viewModel.addSingleOperatorToOperation("CE") }
+        binding.keyboardButtonC.setOnClickListener { viewModel.addSingleOperatorToOperation("C") }
+
+        binding.keyboardButtonDel.setOnClickListener { viewModel.delete() }
     }
 }
