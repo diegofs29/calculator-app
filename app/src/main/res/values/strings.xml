@@ -24,4 +24,5 @@
     <string name="ce">CE</string>
     <string name="c">C</string>
     <string name="del">DEL</string>
+    <string name="result_too_long">No puedes escribir más de 15 dígitos</string>
 </resources>
