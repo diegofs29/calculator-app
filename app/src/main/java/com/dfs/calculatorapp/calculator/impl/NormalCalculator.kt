@@ -5,9 +5,16 @@ import kotlin.math.pow
 import kotlin.math.sqrt
 
 class NormalCalculator : Calculator {
-    private var number1: Double? = null
-    private var operator: String? = null
-    private var number2: Double? = null
+    var number1: Double? = null
+        private set
+    var operator: String? = null
+        private set
+    var number2: Double? = null
+        private set
+
+    private val possibleOperators: List<String> =
+        arrayListOf("inv","sq", "sqrt", "%", "+", "-", "×", "÷")
+
     override fun setNumber1(number: Double) {
         number1 = number
     }
@@ -17,7 +24,9 @@ class NormalCalculator : Calculator {
     }
 
     override fun setOperator(operator: String) {
-        this.operator = operator
+        if (possibleOperators.contains(operator)) {
+            this.operator = operator
+        }
     }
 
     override fun calculate(): Double {
