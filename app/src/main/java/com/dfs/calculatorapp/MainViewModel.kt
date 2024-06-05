@@ -86,12 +86,11 @@ class MainViewModel : ViewModel() {
     }
 
     private fun manageSingleOperation(operator: String) {
-        val number = if (numberList.size > 0) numberList[0] else result.value?.toDoubleOrNull()
+        val number = result.value?.toDoubleOrNull()
         number?.let { calculator.setNumber1(it) }
         calculator.setOperator(operator)
         val value = calculator.calculate().toDouble()
         result.value = DecimalFormat("#.####").format(value)
-        numberList.clear()
     }
 
     fun delete() {
