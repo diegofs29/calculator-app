@@ -99,16 +99,18 @@ class MainViewModel : ViewModel() {
     }
 
     fun calculate() {
-        operation.value += DecimalFormat("#.#### ").format(result.value?.toDoubleOrNull())
-        operation.value += "="
-        result.value?.toDoubleOrNull()?.let { numberList.add(it) }
-        if (numberList.size == 2) {
-            calculator.setNumber1(numberList[0])
-            calculator.setNumber2(numberList[1])
-            operator?.let { calculator.setOperator(it) }
-            val value = calculator.calculate().toDouble()
-            this.result.value = DecimalFormat("#.####").format(value)
-            numberList.clear()
+        if (numberList.size == 1) {
+            operation.value += DecimalFormat("#.#### ").format(result.value?.toDoubleOrNull())
+            operation.value += "="
+            result.value?.toDoubleOrNull()?.let { numberList.add(it) }
+            if (numberList.size == 2) {
+                calculator.setNumber1(numberList[0])
+                calculator.setNumber2(numberList[1])
+                operator?.let { calculator.setOperator(it) }
+                val value = calculator.calculate().toDouble()
+                this.result.value = DecimalFormat("#.####").format(value)
+                numberList.clear()
+            }
         }
     }
 }
