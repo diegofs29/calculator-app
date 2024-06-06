@@ -566,14 +566,24 @@ class NormalCalculatorTest {
         assertEquals(Double.NaN, result, 0.0)
     }
 
-    /*
-    @Test fun calculate_percentage() {
+    @Test fun calculate_percentage_positive() {
         calculator.setOperator("%")
+        calculator.setNumber1(50.5)
+        val result = calculator.calculate()
+        assertEquals(0.505, result, 0.001)
+    }
 
-        // +
+    @Test fun calculate_percentage_negative() {
+        calculator.setOperator("%")
+        calculator.setNumber1(-25.67)
+        val result = calculator.calculate()
+        assertEquals(-0.2567, result, 0.0001)
+    }
 
-        // -
-
-        // 0
-    } */
+    @Test fun calculate_percentage_zero() {
+        calculator.setOperator("%")
+        calculator.setNumber1(0.0)
+        val result = calculator.calculate()
+        assertEquals(0.0, result, 0.0)
+    }
 }
