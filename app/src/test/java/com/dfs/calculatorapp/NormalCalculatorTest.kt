@@ -545,21 +545,28 @@ class NormalCalculatorTest {
         assertEquals(0.0, result, 0.0)
     }
 
+    @Test fun calculate_squareRoot_positive() {
+        calculator.setOperator("sqrt")
+        calculator.setNumber1(49.0)
+        val result = calculator.calculate()
+        assertEquals(7.0, result, 0.1)
+    }
+
+    @Test fun calculate_squareRoot_zero() {
+        calculator.setOperator("sqrt")
+        calculator.setNumber1(0.0)
+        val result = calculator.calculate()
+        assertEquals(0.0, result, 0.0)
+    }
+
+    @Test fun calculate_squareRoot_negative() {
+        calculator.setOperator("sqrt")
+        calculator.setNumber1(-4.0)
+        val result = calculator.calculate()
+        assertEquals(Double.NaN, result, 0.0)
+    }
+
     /*
-    @Test fun calculate_squareRoot() {
-        calculator.setOperator("sqrt")
-
-        // +
-
-        // 0
-    }
-
-    @Test fun calculate_squareRoot_error() {
-        calculator.setOperator("sqrt")
-
-        // -
-    }
-
     @Test fun calculate_percentage() {
         calculator.setOperator("%")
 
