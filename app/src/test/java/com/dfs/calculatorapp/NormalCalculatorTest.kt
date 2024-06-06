@@ -14,92 +14,92 @@ class NormalCalculatorTest {
 
     @Test fun setNumber1_zeroDecimals() {
         calculator.setNumber1(3.0)
-        assertEquals(calculator.number1, 3.0)
+        assertEquals(3.0, calculator.number1)
     }
 
     @Test fun setNumber1_oneDecimal() {
         calculator.setNumber1(3.1)
-        assertEquals(calculator.number1, 3.1)
+        assertEquals(3.1, calculator.number1)
     }
 
     @Test fun setNumber1_twoDecimals() {
         calculator.setNumber1(3.14)
-        assertEquals(calculator.number1, 3.14)
+        assertEquals(3.14, calculator.number1)
     }
 
     @Test fun setNumber1_threeDecimals() {
         calculator.setNumber1(3.141)
-        assertEquals(calculator.number1, 3.141)
+        assertEquals(3.141, calculator.number1)
     }
 
     @Test fun setNumber1_fourDecimals() {
         calculator.setNumber1(3.1416)
-        assertEquals(calculator.number1, 3.1416)
+        assertEquals(3.1416, calculator.number1)
     }
 
     @Test fun setNumber2_zeroDecimals() {
         calculator.setNumber2(1.0)
-        assertEquals(calculator.number2, 1.0)
+        assertEquals(1.0, calculator.number2)
     }
 
     @Test fun setNumber2_oneDecimal() {
         calculator.setNumber2(1.2)
-        assertEquals(calculator.number2, 1.2)
+        assertEquals(1.2, calculator.number2)
     }
 
     @Test fun setNumber2_twoDecimals() {
         calculator.setNumber2(1.23)
-        assertEquals(calculator.number2, 1.23)
+        assertEquals(1.23, calculator.number2)
     }
 
     @Test fun setNumber2_threeDecimals() {
         calculator.setNumber2(1.234)
-        assertEquals(calculator.number2, 1.234)
+        assertEquals(1.234, calculator.number2)
     }
 
     @Test fun setNumber2_fourDecimals() {
         calculator.setNumber2(1.2345)
-        assertEquals(calculator.number2, 1.2345)
+        assertEquals(1.2345, calculator.number2)
     }
 
     @Test fun setOperator_division() {
         calculator.setOperator("÷")
-        assertEquals(calculator.operator, "÷")
+        assertEquals("÷", calculator.operator)
     }
 
     @Test fun setOperator_multiply() {
         calculator.setOperator("×")
-        assertEquals(calculator.operator, "×")
+        assertEquals("×", calculator.operator)
     }
 
     @Test fun setOperator_minus() {
         calculator.setOperator("-")
-        assertEquals(calculator.operator, "-")
+        assertEquals("-", calculator.operator)
     }
 
     @Test fun setOperator_plus() {
         calculator.setOperator("+")
-        assertEquals(calculator.operator, "+")
+        assertEquals("+", calculator.operator)
     }
 
     @Test fun setOperator_percentage() {
         calculator.setOperator("%")
-        assertEquals(calculator.operator, "%")
+        assertEquals("%", calculator.operator)
     }
 
     @Test fun setOperator_sqrt() {
         calculator.setOperator("sqrt")
-        assertEquals(calculator.operator, "sqrt")
+        assertEquals("sqrt", calculator.operator)
     }
 
     @Test fun setOperator_sq() {
         calculator.setOperator("sq")
-        assertEquals(calculator.operator, "sq")
+        assertEquals("sq", calculator.operator)
     }
 
     @Test fun setOperator_inv() {
         calculator.setOperator("inv")
-        assertEquals(calculator.operator, "inv")
+        assertEquals("inv", calculator.operator)
     }
 
     @Test fun setOperator_isNotSet() {
@@ -112,7 +112,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(0.1)
         calculator.setNumber2(0.2)
         val result = calculator.calculate()
-        assertEquals(result, 0.0, 0.0)
+        assertEquals(0.0, result, 0.0)
     }
 
     @Test fun calculateError_noNumber2() {
@@ -120,7 +120,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(0.1)
         calculator.setOperator("×")
         val result = calculator.calculate()
-        assertEquals(result, 0.0, 0.0)
+        assertEquals(0.0, result, 0.0)
     }
 
     @Test fun calculateError_noNumber1() {
@@ -128,7 +128,7 @@ class NormalCalculatorTest {
         calculator.setOperator("+")
         calculator.setNumber2(0.1)
         val result = calculator.calculate()
-        assertEquals(result, 0.0, 0.0)
+        assertEquals(0.0, result, 0.0)
     }
 
     @Test fun calculate_add_bothPositive() {
@@ -136,7 +136,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(25.0)
         calculator.setNumber2(25.666)
         val result: Double = calculator.calculate()
-        assertEquals(result, 50.666, 0.001)
+        assertEquals(50.666, result, 0.001)
     }
 
     @Test fun calculate_add_positiveNegativeEqualPositive() {
@@ -144,7 +144,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(66.666)
         calculator.setNumber2(-40.25)
         val result = calculator.calculate()
-        assertEquals(result, 26.416, 0.001)
+        assertEquals(26.416, result, 0.001)
     }
 
     @Test fun calculate_add_positiveNegativeEqualNegative() {
@@ -152,7 +152,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(25.10)
         calculator.setNumber2(-40.25)
         val result = calculator.calculate()
-        assertEquals(result, -15.15, 0.01)
+        assertEquals(-15.15, result, 0.01)
     }
 
     @Test fun calculate_add_positiveNegativeEqualZero() {
@@ -160,7 +160,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(2.0)
         calculator.setNumber2(-2.0)
         val result = calculator.calculate()
-        assertEquals(result, 0.0, 0.0)
+        assertEquals(0.0, result, 0.0)
     }
 
     @Test fun calculate_add_negativePositiveEqualPositive() {
@@ -168,7 +168,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(-2.0)
         calculator.setNumber2(4.25)
         val result = calculator.calculate()
-        assertEquals(result, 2.25, 0.01)
+        assertEquals(2.25, result, 0.01)
     }
 
     @Test fun calculate_add_negativePositiveEqualNegative() {
@@ -176,7 +176,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(-1.1111)
         calculator.setNumber2(0.1111)
         val result = calculator.calculate()
-        assertEquals(result, -1.0, 0.1)
+        assertEquals(-1.0, result, 0.1)
     }
 
     @Test fun calculate_add_negativePositiveEqualZero() {
@@ -184,7 +184,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(-5.5)
         calculator.setNumber2(5.5)
         val result = calculator.calculate()
-        assertEquals(result, 0.0, 0.0)
+        assertEquals(0.0, result, 0.0)
     }
 
     @Test fun calculate_add_bothNegative() {
@@ -192,7 +192,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(-1.1111)
         calculator.setNumber2(-50.314)
         val result = calculator.calculate()
-        assertEquals(result, -51.4251, 0.0001)
+        assertEquals(-51.4251, result, 0.0001)
     }
 
     @Test fun calculate_add_zeroPositive() {
@@ -200,7 +200,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(0.0)
         calculator.setNumber2(5.5)
         val result = calculator.calculate()
-        assertEquals(result, 5.5, 0.1)
+        assertEquals(5.5, result, 0.1)
     }
 
     @Test fun calculate_add_zeroNegative() {
@@ -208,7 +208,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(0.0)
         calculator.setNumber2(-78947.416)
         val result = calculator.calculate()
-        assertEquals(result, -78947.416, 0.001)
+        assertEquals(-78947.416, result, 0.001)
     }
 
     @Test fun calculate_add_positiveZero() {
@@ -216,7 +216,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(564.4856)
         calculator.setNumber2(0.0)
         val result = calculator.calculate()
-        assertEquals(result, 564.4856, 0.0001)
+        assertEquals(564.4856, result, 0.0001)
     }
 
     @Test fun calculate_add_negativeZero() {
@@ -224,7 +224,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(-461.456)
         calculator.setNumber2(0.0)
         val result = calculator.calculate()
-        assertEquals(result, -461.456, 0.001)
+        assertEquals(-461.456, result, 0.001)
     }
 
     @Test fun calculate_add_bothZero() {
@@ -232,7 +232,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(0.0)
         calculator.setNumber2(0.0)
         val result = calculator.calculate()
-        assertEquals(result, 0.0, 0.1)
+        assertEquals(0.0, result, 0.1)
     }
 
     @Test fun calculate_subtract_bothPositiveEqualPositive() {
@@ -240,7 +240,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(2.0)
         calculator.setNumber2(1.15)
         val result = calculator.calculate()
-        assertEquals(result, 0.85, 0.01)
+        assertEquals(0.85, result, 0.01)
     }
 
     @Test fun calculate_subtract_bothPositiveEqualNegative() {
@@ -248,7 +248,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(0.231)
         calculator.setNumber2(596.7)
         val result = calculator.calculate()
-        assertEquals(result, -596.469, 0.001)
+        assertEquals(-596.469, result, 0.001)
     }
 
     @Test fun calculate_subtract_bothPositiveEqualZero() {
@@ -256,7 +256,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(64.645)
         calculator.setNumber2(64.645)
         val result = calculator.calculate()
-        assertEquals(result, 0.0, 0.0)
+        assertEquals(0.0, result, 0.0)
     }
 
     @Test fun calculate_subtract_positiveNegative() {
@@ -264,7 +264,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(69.87)
         calculator.setNumber2(-45.1234)
         val result = calculator.calculate()
-        assertEquals(result, 114.9934, 0.0001)
+        assertEquals(114.9934, result, 0.0001)
     }
 
     @Test fun calculate_subtract_negativePositive() {
@@ -272,7 +272,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(-4563.654)
         calculator.setNumber2(87.456)
         val result = calculator.calculate()
-        assertEquals(result, -4651.11, 0.01)
+        assertEquals(-4651.11, result, 0.01)
     }
 
     @Test fun calculate_subtract_bothNegativeEqualPositive() {
@@ -280,7 +280,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(-58.12)
         calculator.setNumber2(-89.1549)
         val result = calculator.calculate()
-        assertEquals(result, 31.0349, 0.0001)
+        assertEquals(31.0349, result, 0.0001)
     }
 
     @Test fun calculate_subtract_bothNegativeEqualNegative() {
@@ -288,7 +288,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(-9784.846)
         calculator.setNumber2(-43.64)
         val result = calculator.calculate()
-        assertEquals(result, -9741.206, 0.001)
+        assertEquals(-9741.206, result, 0.001)
     }
 
     @Test fun calculate_subtract_bothNegativeEqualZero() {
@@ -296,7 +296,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(-25.0)
         calculator.setNumber2(-25.0)
         val result = calculator.calculate()
-        assertEquals(result, 0.0, 0.0)
+        assertEquals(0.0, result, 0.0)
     }
 
     @Test fun calculate_subtract_zeroPositive() {
@@ -304,7 +304,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(0.0)
         calculator.setNumber2(456.7)
         val result = calculator.calculate()
-        assertEquals(result, -456.7, 0.1)
+        assertEquals(-456.7, result, 0.1)
     }
 
     @Test fun calculate_subtract_zeroNegative() {
@@ -312,7 +312,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(0.0)
         calculator.setNumber2(-75.123)
         val result = calculator.calculate()
-        assertEquals(result, 75.123, 0.001)
+        assertEquals(75.123, result, 0.001)
     }
 
     @Test fun calculate_subtract_positiveZero() {
@@ -320,7 +320,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(21.2)
         calculator.setNumber2(0.0)
         val result = calculator.calculate()
-        assertEquals(result, 21.2, 0.1)
+        assertEquals(21.2, result, 0.1)
     }
 
     @Test fun calculate_subtract_negativeZero() {
@@ -328,7 +328,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(-55.5555)
         calculator.setNumber2(0.0)
         val result = calculator.calculate()
-        assertEquals(result, -55.5555, 0.0001)
+        assertEquals(-55.5555, result, 0.0001)
     }
 
     @Test fun calculate_subtract_bothZero() {
@@ -336,7 +336,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(0.0)
         calculator.setNumber2(0.0)
         val result = calculator.calculate()
-        assertEquals(result, 0.0, 0.0)
+        assertEquals(0.0, result, 0.0)
     }
 
     @Test fun calculate_multiply_bothPositive() {
@@ -344,14 +344,14 @@ class NormalCalculatorTest {
         calculator.setNumber1(2.2)
         calculator.setNumber2(5.4)
         val result = calculator.calculate()
-        assertEquals(result, 11.88, 0.01)
+        assertEquals(11.88, result, 0.01)
     }
     @Test fun calculate_multiply_positiveNegative() {
         calculator.setOperator("×")
         calculator.setNumber1(486.789)
         calculator.setNumber2(-687.985)
         val result = calculator.calculate()
-        assertEquals(result, -334903.5301, 0.0001)
+        assertEquals(-334903.5301, result, 0.0001)
     }
 
     @Test fun calculate_multiply_negativePositive() {
@@ -359,7 +359,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(-25.0)
         calculator.setNumber2(69.666)
         val result = calculator.calculate()
-        assertEquals(result, -1741.65, 0.01)
+        assertEquals(-1741.65, result, 0.01)
     }
 
     @Test fun calculate_multiply_bothNegative() {
@@ -367,7 +367,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(-59.48)
         calculator.setNumber2(-566.258)
         val result = calculator.calculate()
-        assertEquals(result, 33681.0258, 0.0001)
+        assertEquals(33681.0258, result, 0.0001)
     }
 
     @Test fun calculate_multiply_zeroPositive() {
@@ -375,7 +375,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(0.0)
         calculator.setNumber2(69.666)
         val result = calculator.calculate()
-        assertEquals(result, 0.0, 0.0)
+        assertEquals(0.0, result, 0.0)
     }
 
     @Test fun calculate_multiply_zeroNegative() {
@@ -383,7 +383,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(0.0)
         calculator.setNumber2(-586.99)
         val result = calculator.calculate()
-        assertEquals(result, 0.0, 0.0)
+        assertEquals(0.0, result, 0.0)
     }
 
     @Test fun calculate_multiply_positiveZero() {
@@ -391,7 +391,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(982.47)
         calculator.setNumber2(0.0)
         val result = calculator.calculate()
-        assertEquals(result, 0.0, 0.0)
+        assertEquals(0.0, result, 0.0)
     }
 
     @Test fun calculate_multiply_negativeZero() {
@@ -399,7 +399,7 @@ class NormalCalculatorTest {
         calculator.setNumber1(-128.52)
         calculator.setNumber2(0.0)
         val result = calculator.calculate()
-        assertEquals(result, 0.0, 0.0)
+        assertEquals(0.0, result, 0.0)
     }
 
     @Test fun calculate_multiply_bothZero() {
@@ -407,36 +407,82 @@ class NormalCalculatorTest {
         calculator.setNumber1(0.0)
         calculator.setNumber2(0.0)
         val result = calculator.calculate()
-        assertEquals(result, 0.0, 0.0)
+        assertEquals(0.0, result, 0.0)
+    }
+
+    @Test fun calculate_divide_bothPositive() {
+        calculator.setOperator("÷")
+        calculator.setNumber1(6.6)
+        calculator.setNumber2(3.3)
+        val result = calculator.calculate()
+        assertEquals(2.0, result, 0.1)
+    }
+
+    @Test fun calculate_divide_positiveNegative() {
+        calculator.setOperator("÷")
+        calculator.setNumber1(841.21)
+        calculator.setNumber2(-86.1)
+        val result = calculator.calculate()
+        assertEquals(-9.7701, result, 0.0001)
+    }
+
+    @Test fun calculate_divide_negativePositive() {
+        calculator.setOperator("÷")
+        calculator.setNumber1(-618.25)
+        calculator.setNumber2(4.267)
+        val result = calculator.calculate()
+        assertEquals(-144.8910, result, 0.0001)
+    }
+
+    @Test fun calculate_divide_bothNegative() {
+        calculator.setOperator("÷")
+        calculator.setNumber1(-20.0)
+        calculator.setNumber2(-2.0)
+        val result = calculator.calculate()
+        assertEquals(10.0, result, 0.1)
+    }
+
+    @Test fun calculate_divide_zeroPositive() {
+        calculator.setOperator("÷")
+        calculator.setNumber1(0.0)
+        calculator.setNumber2(1.1)
+        val result = calculator.calculate()
+        assertEquals(0.0, result, 0.0)
+    }
+
+    @Test fun calculate_divide_zeroNegative() {
+        calculator.setOperator("÷")
+        calculator.setNumber1(0.0)
+        calculator.setNumber2(-58.514)
+        val result = calculator.calculate()
+        assertEquals(0.0, result, 0.0)
+    }
+
+    @Test fun calculate_divide_error_positiveZero() {
+        calculator.setOperator("÷")
+        calculator.setNumber1(1.56)
+        calculator.setNumber2(0.0)
+        val result = calculator.calculate()
+        assertEquals(Double.POSITIVE_INFINITY, result, 0.0)
+    }
+
+    @Test fun calculate_divide_error_negativeZero() {
+        calculator.setOperator("÷")
+        calculator.setNumber1(-2.78)
+        calculator.setNumber2(0.0)
+        val result = calculator.calculate()
+        assertEquals(Double.NEGATIVE_INFINITY, result, 0.0)
+    }
+
+    @Test fun calculate_divide_error_bothZero() {
+        calculator.setOperator("÷")
+        calculator.setNumber1(0.0)
+        calculator.setNumber2(0.0)
+        val result = calculator.calculate()
+        assertEquals(Double.NaN, result, 0.0)
     }
 
     /*
-    @Test fun calculate_divide() {
-        calculator.setOperator("÷")
-
-        // ++
-
-        // +-
-
-        // -+
-
-        // --
-
-        // 0+
-
-        // 0-
-    }
-
-    @Test fun calculate_divide_error() {
-        calculator.setOperator("÷")
-
-        // +0
-
-        // -0
-
-        // 00
-    }
-
     @Test fun calculate_negative() {
         calculator.setOperator("-")
 
