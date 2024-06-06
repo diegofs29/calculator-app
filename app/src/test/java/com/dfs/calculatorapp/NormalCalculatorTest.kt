@@ -482,13 +482,30 @@ class NormalCalculatorTest {
         assertEquals(Double.NaN, result, 0.0)
     }
 
+    @Test fun calculate_negative_fromPositive() {
+        calculator.setOperator("-")
+        calculator.setNumber1(1.0)
+        val result = calculator.calculate()
+        assertEquals(-1.0, result, 0.1)
+    }
+
+    @Test fun calculate_negative_fromNegative() {
+        calculator.setOperator("-")
+        calculator.setNumber1(-1.0)
+        val result = calculator.calculate()
+        assertEquals(1.0, result, 0.1)
+    }
+
+    @Test fun calculate_negative_fromZero() {
+        calculator.setOperator("-")
+        calculator.setNumber1(0.0)
+        val result = calculator.calculate()
+        assertEquals(0.0, result, 0.0)
+    }
+
     /*
     @Test fun calculate_negative() {
         calculator.setOperator("-")
-
-        // +
-
-        // -
 
         // 0
     }
