@@ -503,27 +503,28 @@ class NormalCalculatorTest {
         assertEquals(0.0, result, 0.0)
     }
 
+    @Test fun calculate_inverse_positive() {
+        calculator.setOperator("inv")
+        calculator.setNumber1(2.0)
+        val result = calculator.calculate()
+        assertEquals(0.5, result, 0.1)
+    }
+
+    @Test fun calculate_inverse_negative() {
+        calculator.setOperator("inv")
+        calculator.setNumber1(-4.0)
+        val result = calculator.calculate()
+        assertEquals(-0.25, result, 0.01)
+    }
+
+    @Test fun calculate_inverse_zero() {
+        calculator.setOperator("inv")
+        calculator.setNumber1(0.0)
+        val result = calculator.calculate()
+        assertEquals(Double.POSITIVE_INFINITY, result, 0.0)
+    }
+
     /*
-    @Test fun calculate_negative() {
-        calculator.setOperator("-")
-
-        // 0
-    }
-
-    @Test fun calculate_inverse() {
-        calculator.setOperator("inv")
-
-        // +
-
-        // -
-    }
-
-    @Test fun calculate_inverse_error() {
-        calculator.setOperator("inv")
-
-        // 0
-    }
-
     @Test fun calculate_square() {
         calculator.setOperator("sq")
 
