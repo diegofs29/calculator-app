@@ -524,17 +524,28 @@ class NormalCalculatorTest {
         assertEquals(Double.POSITIVE_INFINITY, result, 0.0)
     }
 
-    /*
-    @Test fun calculate_square() {
+    @Test fun calculate_square_positive() {
         calculator.setOperator("sq")
-
-        // +
-
-        // -
-
-        // 0
+        calculator.setNumber1(4.5)
+        val result = calculator.calculate()
+        assertEquals(20.25, result, 0.01)
     }
 
+    @Test fun calculate_square_negative() {
+        calculator.setOperator("sq")
+        calculator.setNumber1(-3.0)
+        val result = calculator.calculate()
+        assertEquals(9.0, result, 0.1)
+    }
+
+    @Test fun calculate_square_zero() {
+        calculator.setOperator("sq")
+        calculator.setNumber1(0.0)
+        val result = calculator.calculate()
+        assertEquals(0.0, result, 0.0)
+    }
+
+    /*
     @Test fun calculate_squareRoot() {
         calculator.setOperator("sqrt")
 
