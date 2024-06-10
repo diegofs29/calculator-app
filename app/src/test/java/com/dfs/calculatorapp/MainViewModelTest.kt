@@ -1,24 +1,21 @@
 package com.dfs.calculatorapp
 
-import android.icu.text.DecimalFormat
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import org.junit.Assert.*
+import com.dfs.calculatorapp.calculator.impl.NormalCalculator
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
-import org.mockito.Mock
 
 class MainViewModelTest {
     private lateinit var viewModel: MainViewModel
-
-    @Mock private lateinit var formatter: DecimalFormat
 
     @get:Rule var rule: TestRule = InstantTaskExecutorRule()
 
     @Before fun setup() {
         viewModel = MainViewModel()
-        formatter = DecimalFormat("#.#### ")
+        viewModel.calculator = NormalCalculator()
     }
 
     @Test fun mainViewModel_AddNumberToOperation_LetterNotAdded() {
@@ -188,5 +185,43 @@ class MainViewModelTest {
         viewModel.addOperatorToOperation("+")
         viewModel.addNumberToOperation("9")
         assertEquals("9", viewModel.result.value)
+    }
+
+    @Test fun mainViewModel_AddOperatorToOperation_CalculateAndAddPlusOperator() {
+        viewModel.addNumberToOperation("6")
+        viewModel.addOperatorToOperation("-")
+        viewModel.addNumberToOperation("2")
+        viewModel.addOperatorToOperation("+")
+        assertEquals("4 + ", viewModel.operation.value)
+    }
+
+    @Test fun mainViewModel_AddOperatorToOperation_CalculateAndAddMinusOperator() {
+        viewModel.addNumberToOperation("6")
+        viewModel.addOperatorToOperation("+")
+        viewModel.addNumberToOperation("2")
+        viewModel.addNumberToOperation(".")
+        viewModel.addNumberToOperation("5")
+        viewModel.addOperatorToOperation("-")
+        assertEquals("8,5 - ", viewModel.operation.value)
+    }
+
+    @Test fun mainViewModel_AddOperatorToOperation_CalculateAndAddMultiplyOperator() {
+        viewModel.addNumberToOperation("5")
+        viewModel.addOperatorToOperation("÷")
+        viewModel.addNumberToOperation("2")
+        viewModel.addNumberToOperation(".")
+        viewModel.addNumberToOperation("5")
+        viewModel.addOperatorToOperation("×")
+        assertEquals("2 × ", viewModel.operation.value)
+    }
+
+    @Test fun mainViewModel_AddOperatorToOperation_CalculateAndAddDivideOperator() {
+        viewModel.addNumberToOperation("4")
+        viewModel.addNumberToOperation(".")
+        viewModel.addNumberToOperation("4")
+        viewModel.addOperatorToOperation("×")
+        viewModel.addNumberToOperation("5")
+        viewModel.addOperatorToOperation("÷")
+        assertEquals("22 ÷ ", viewModel.operation.value)
     }
 }

@@ -30,7 +30,7 @@ class MainViewModel : ViewModel() {
     fun addOperatorToOperation(operator: String) {
         if (result.value?.isNotEmpty() == true) {
             if ("[+\\-×÷]".toRegex().matches(operator)) {
-                if (isLastValueOperator()) {
+                if (isLastValueOperator() && moveToOperation) {
                     operation.value = operation.value?.dropLast(2)
                 } else {
                     moveToOperation = true
