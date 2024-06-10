@@ -269,4 +269,17 @@ class MainViewModelTest {
         viewModel.addSingleOperatorToOperation("C")
         assertEquals("", viewModel.operation.value)
     }
+
+    @Test fun mainViewModel_Delete_DeleteWithoutAddingNumbers() {
+        viewModel.delete()
+        viewModel.delete()
+        assertEquals("", viewModel.result.value)
+    }
+
+    @Test fun mainViewModel_Delete_DeleteAddingNumbers() {
+        viewModel.addNumberToOperation("1")
+        viewModel.addNumberToOperation("2")
+        viewModel.delete()
+        assertEquals("1", viewModel.result.value)
+    }
 }
