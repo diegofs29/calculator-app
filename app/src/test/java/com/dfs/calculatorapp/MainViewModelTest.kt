@@ -282,4 +282,30 @@ class MainViewModelTest {
         viewModel.delete()
         assertEquals("1", viewModel.result.value)
     }
+
+    @Test fun mainViewModel_Calculate_WithNoNumbersNoOperation() {
+        viewModel.calculate()
+        assertEquals("", viewModel.operation.value)
+    }
+
+    @Test fun mainViewModel_Calculate_WithOneNumberNoOperation() {
+        viewModel.addNumberToOperation("1")
+        viewModel.calculate()
+        assertEquals("", viewModel.operation.value)
+    }
+
+    @Test fun mainViewModel_Calculate_WithOneNumberAndAOperatorOperation() {
+        viewModel.addNumberToOperation("1")
+        viewModel.addOperatorToOperation("+")
+        viewModel.calculate()
+        assertEquals("1 + 1 =", viewModel.operation.value)
+    }
+
+    @Test fun mainViewModel_Calculate_WithTwoNumbersAndAOperatorOperation() {
+        viewModel.addNumberToOperation("1")
+        viewModel.addOperatorToOperation("+")
+        viewModel.addNumberToOperation("2")
+        viewModel.calculate()
+        assertEquals("1 + 2 =", viewModel.operation.value)
+    }
 }
