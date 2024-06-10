@@ -16,7 +16,7 @@ class MainViewModel : ViewModel() {
     private var operator: String? = null
 
     fun addNumberToOperation(number: String) {
-        if ("[0-9.]".toRegex().matches(number)) {
+        if ("[0-9]".toRegex().matches(number)) {
             if (moveToOperation) {
                 moveToOperation = false
                 result.value = ""
