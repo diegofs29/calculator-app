@@ -129,4 +129,64 @@ class MainViewModelTest {
         viewModel.addOperatorToOperation("÷")
         assertEquals("0 ÷ ", viewModel.operation.value)
     }
+
+    @Test fun mainViewModel_AddNumberToOperation_MoveToOperationAndAddZero() {
+        viewModel.addOperatorToOperation("+")
+        viewModel.addNumberToOperation("0")
+        assertEquals("0", viewModel.result.value)
+    }
+
+    @Test fun mainViewModel_AddNumberToOperation_MoveToOperationAndAddOne() {
+        viewModel.addOperatorToOperation("+")
+        viewModel.addNumberToOperation("1")
+        assertEquals("1", viewModel.result.value)
+    }
+
+    @Test fun mainViewModel_AddNumberToOperation_MoveToOperationAndAddTwo() {
+        viewModel.addOperatorToOperation("+")
+        viewModel.addNumberToOperation("2")
+        assertEquals("2", viewModel.result.value)
+    }
+
+    @Test fun mainViewModel_AddNumberToOperation_MoveToOperationAndAddThree() {
+        viewModel.addOperatorToOperation("+")
+        viewModel.addNumberToOperation("3")
+        assertEquals("3", viewModel.result.value)
+    }
+
+    @Test fun mainViewModel_AddNumberToOperation_MoveToOperationAndAddFour() {
+        viewModel.addOperatorToOperation("+")
+        viewModel.addNumberToOperation("4")
+        assertEquals("4", viewModel.result.value)
+    }
+
+    @Test fun mainViewModel_AddNumberToOperation_MoveToOperationAndAddFive() {
+        viewModel.addOperatorToOperation("+")
+        viewModel.addNumberToOperation("5")
+        assertEquals("5", viewModel.result.value)
+    }
+
+    @Test fun mainViewModel_AddNumberToOperation_MoveToOperationAndAddSix() {
+        viewModel.addOperatorToOperation("+")
+        viewModel.addNumberToOperation("6")
+        assertEquals("6", viewModel.result.value)
+    }
+
+    @Test fun mainViewModel_AddNumberToOperation_MoveToOperationAndAddSeven() {
+        viewModel.addOperatorToOperation("+")
+        viewModel.addNumberToOperation("7")
+        assertEquals("7", viewModel.result.value)
+    }
+
+    @Test fun mainViewModel_AddNumberToOperation_MoveToOperationAndAddEight() {
+        viewModel.addOperatorToOperation("+")
+        viewModel.addNumberToOperation("8")
+        assertEquals("8", viewModel.result.value)
+    }
+
+    @Test fun mainViewModel_AddNumberToOperation_MoveToOperationAndAddNine() {
+        viewModel.addOperatorToOperation("+")
+        viewModel.addNumberToOperation("9")
+        assertEquals("9", viewModel.result.value)
+    }
 }
