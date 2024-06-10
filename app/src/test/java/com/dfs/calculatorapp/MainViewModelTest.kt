@@ -224,4 +224,49 @@ class MainViewModelTest {
         viewModel.addOperatorToOperation("÷")
         assertEquals("22 ÷ ", viewModel.operation.value)
     }
+
+    @Test fun mainViewModel_AddSingleOperatorToOperation_NegativeNumber() {
+        viewModel.addNumberToOperation("1")
+        viewModel.addSingleOperatorToOperation("-")
+        assertEquals("-1", viewModel.result.value)
+    }
+
+    @Test fun mainViewModel_AddSingleOperatorToOperation_InvertNumber() {
+        viewModel.addNumberToOperation("2")
+        viewModel.addSingleOperatorToOperation("inv")
+        assertEquals("0,5", viewModel.result.value)
+    }
+
+    @Test fun mainViewModel_AddSingleOperatorToOperation_CalculateSquareOfNumber() {
+        viewModel.addNumberToOperation("4")
+        viewModel.addSingleOperatorToOperation("sq")
+        assertEquals("16", viewModel.result.value)
+    }
+
+    @Test fun mainViewModel_AddSingleOperatorToOperation_CalculateSQRTOfNumber() {
+        viewModel.addNumberToOperation("4")
+        viewModel.addNumberToOperation("9")
+        viewModel.addSingleOperatorToOperation("sqrt")
+        assertEquals("7", viewModel.result.value)
+    }
+
+    @Test fun mainViewModel_AddSingleOperatorToOperation_PercentageOfNumber() {
+        viewModel.addNumberToOperation("1")
+        viewModel.addSingleOperatorToOperation("%")
+        assertEquals("0,01", viewModel.result.value)
+    }
+
+    @Test fun mainViewModel_AddSingleOperatorToOperation_CE() {
+        viewModel.addNumberToOperation("1")
+        viewModel.addSingleOperatorToOperation("CE")
+        assertEquals("0", viewModel.result.value)
+    }
+
+    @Test fun mainViewModel_AddSingleOperatorToOperation_C() {
+        viewModel.addNumberToOperation("1")
+        viewModel.addOperatorToOperation("+")
+        viewModel.addNumberToOperation("2")
+        viewModel.addSingleOperatorToOperation("C")
+        assertEquals("", viewModel.operation.value)
+    }
 }
