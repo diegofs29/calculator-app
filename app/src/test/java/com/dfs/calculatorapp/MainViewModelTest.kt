@@ -1,19 +1,24 @@
 package com.dfs.calculatorapp
 
+import android.icu.text.DecimalFormat
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
+import org.mockito.Mock
 
 class MainViewModelTest {
     private lateinit var viewModel: MainViewModel
+
+    @Mock private lateinit var formatter: DecimalFormat
 
     @get:Rule var rule: TestRule = InstantTaskExecutorRule()
 
     @Before fun setup() {
         viewModel = MainViewModel()
+        formatter = DecimalFormat("#.#### ")
     }
 
     @Test fun mainViewModel_AddNumberToOperation_LetterNotAdded() {
@@ -74,5 +79,30 @@ class MainViewModelTest {
     @Test fun mainViewModel_AddNumberToOperation_MultipleNumbersNotAddedToResult() {
         viewModel.addNumberToOperation("12")
         assertEquals("0", viewModel.result.value)
+    }
+
+    @Test fun mainViewModel_AddOperatorToOperation_IncorrectOperatorNotAdded() {
+        viewModel.addOperatorToOperation("/")
+        assertEquals(0, viewModel.operation.value?.length)
+    }
+
+    @Test fun mainViewModel_AddOperatorToOperation_PlusOperatorAddedNumberMovedUp() {
+        viewModel.addOperatorToOperation("+")
+        assertEquals("0 + ", viewModel.operation.value)
+    }
+
+    @Test fun mainViewModel_AddOperatorToOperation_MinusOperatorAddedNumberMovedUp() {
+        viewModel.addOperatorToOperation("-")
+        assertEquals("0 - ", viewModel.operation.value)
+    }
+
+    @Test fun mainViewModel_AddOperatorToOperation_MultiplyOperatorAddedNumberMovedUp() {
+        viewModel.addOperatorToOperation("×")
+        assertEquals("0 × ", viewModel.operation.value)
+    }
+
+    @Test fun mainViewModel_AddOperatorToOperation_DivideOperatorAddedNumberMovedUp() {
+        viewModel.addOperatorToOperation("÷")
+        assertEquals("0 ÷ ", viewModel.operation.value)
     }
 }

@@ -1,6 +1,6 @@
 package com.dfs.calculatorapp
 
-import android.icu.text.DecimalFormat
+import java.text.DecimalFormat
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.dfs.calculatorapp.calculator.Calculator
@@ -16,7 +16,7 @@ class MainViewModel : ViewModel() {
     private var operator: String? = null
 
     fun addNumberToOperation(number: String) {
-        if ("[0-9]".toRegex().matches(number)) {
+        if ("[0-9.]".toRegex().matches(number)) {
             if (moveToOperation) {
                 moveToOperation = false
                 result.value = ""
@@ -29,7 +29,7 @@ class MainViewModel : ViewModel() {
 
     fun addOperatorToOperation(operator: String) {
         if (result.value?.isNotEmpty() == true) {
-            if ("[+\\-×÷=]".toRegex().matches(operator)) {
+            if ("[+\\-×÷]".toRegex().matches(operator)) {
                 if (isLastValueOperator()) {
                     operation.value = operation.value?.dropLast(1)
                 } else {
