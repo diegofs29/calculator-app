@@ -105,4 +105,28 @@ class MainViewModelTest {
         viewModel.addOperatorToOperation("÷")
         assertEquals("0 ÷ ", viewModel.operation.value)
     }
+
+    @Test fun mainViewModel_AddOperatorToOperation_PlusOperatorAddedAfterOtherOperator() {
+        viewModel.addOperatorToOperation("-")
+        viewModel.addOperatorToOperation("+")
+        assertEquals("0 + ", viewModel.operation.value)
+    }
+
+    @Test fun mainViewModel_AddOperatorToOperation_MinusOperatorAddedAfterOtherOperator() {
+        viewModel.addOperatorToOperation("+")
+        viewModel.addOperatorToOperation("-")
+        assertEquals("0 - ", viewModel.operation.value)
+    }
+
+    @Test fun mainViewModel_AddOperatorToOperation_MultiplyOperatorAddedAfterOtherOperator() {
+        viewModel.addOperatorToOperation("-")
+        viewModel.addOperatorToOperation("×")
+        assertEquals("0 × ", viewModel.operation.value)
+    }
+
+    @Test fun mainViewModel_AddOperatorToOperation_DivideOperatorAddedAfterOtherOperator() {
+        viewModel.addOperatorToOperation("-")
+        viewModel.addOperatorToOperation("÷")
+        assertEquals("0 ÷ ", viewModel.operation.value)
+    }
 }

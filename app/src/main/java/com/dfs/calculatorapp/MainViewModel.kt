@@ -31,7 +31,7 @@ class MainViewModel : ViewModel() {
         if (result.value?.isNotEmpty() == true) {
             if ("[+\\-×÷]".toRegex().matches(operator)) {
                 if (isLastValueOperator()) {
-                    operation.value = operation.value?.dropLast(1)
+                    operation.value = operation.value?.dropLast(2)
                 } else {
                     moveToOperation = true
                     operation.value = DecimalFormat("#.#### ").format(result.value?.toDoubleOrNull())
@@ -60,9 +60,7 @@ class MainViewModel : ViewModel() {
     private fun isLastValueOperator(): Boolean {
         operation.value?.let {
             if (it.isNotEmpty()) {
-                if ("[+\\-×÷]".toRegex().matchesAt(it, it.length - 1)) {
-                    return true
-                }
+                return "[+\\-×÷]".toRegex().matchesAt(it, it.length - 2)
             }
         }
         return false
